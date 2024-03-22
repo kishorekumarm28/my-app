@@ -1,38 +1,163 @@
-.App {
-  text-align: center;
+/* Importing Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+/* Resetting default styles */
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Setting root variables for font families */
+:root {
+  --font-roboto: "Roboto Slab", serif;
+  --font-raleway: "Raleway", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Styling the body */
+body {
+  font-family: var(--font-roboto); /* Setting the font family */
+  background-color: #212426; /* Setting the background color */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Styling the main container */
+.app {
+  padding: 4rem; /* Adding padding around the content */
+  display: flex; /* Setting display as flex for centering */
+  justify-content: center; /* Aligning content horizontally */
+  align-items: center; /* Aligning content vertically */
+  flex-direction: column; /* Arranging content in a column */
 }
 
-.App-link {
-  color: #61dafb;
+/* Styling the heading */
+h1 {
+  font-size: 3rem; /* Setting font size */
+  letter-spacing: 0.9px; /* Adjusting letter spacing */
+  /* Applying gradient effect to text */
+  background: linear-gradient(90deg, rgba(249, 211, 180, 1) 0%, rgba(249, 211, 180, 0) 100%);
+  background-clip: text; /* Applying gradient to text */
+  -webkit-background-clip: text; /* For Safari */
+  -webkit-text-fill-color: transparent; /* Making text transparent */
+  width: fit-content; /* Adjusting width to fit content */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Styling the search container */
+.search {
+  width: 71%; /* Setting width */
+  margin: 4rem 0 2rem; /* Adding margins */
+  display: flex; /* Setting display as flex */
+  align-items: center; /* Aligning content vertically */
+  justify-content: center; /* Aligning content horizontally */
+  padding: 1.5rem 1.75rem; /* Adding padding */
+  border-radius: 3rem; /* Applying border radius */
+  background: #1f2123; /* Setting background color */
+  /* Adding box shadow */
+  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+}
+
+/* Styling the search input */
+.search input {
+  flex: 1; /* Setting flex property */
+  border: none; /* Removing border */
+  font-size: 1.5rem; /* Setting font size */
+  font-family: var(--font-raleway); /* Setting font family */
+  font-weight: 500; /* Setting font weight */
+  padding-right: 1rem; /* Adding right padding */
+  outline: none; /* Removing outline */
+  color: #a1a1a1; /* Setting text color */
+  background: #1f2123; /* Setting background color */
+}
+
+/* Styling the search icon */
+.search img {
+  width: 35px; /* Setting width */
+  height: 35px; /* Setting height */
+  cursor: pointer; /* Changing cursor on hover */
+}
+
+/* Styling for empty state */
+.empty {
+  width: 100%; /* Setting width */
+  margin-top: 3rem; /* Adding top margin */
+  display: flex; /* Setting display as flex */
+  justify-content: center; /* Aligning content horizontally */
+  align-items: center; /* Aligning content vertically */
+}
+
+/* Styling for empty state text */
+.empty h2 {
+  font-size: 1.25rem; /* Setting font size */
+  color: #f9d3b4; /* Setting text color */
+  font-family: var(--font-raleway); /* Setting font family */
+}
+
+/* Styling the container for movie cards */
+.container {
+  width: 100%; /* Setting width */
+  margin-top: 3rem; /* Adding top margin */
+  display: flex; /* Setting display as flex */
+  justify-content: center; /* Aligning content horizontally */
+  align-items: center; /* Aligning content vertically */
+  flex-wrap: wrap; /* Allowing content to wrap */
+}
+
+/* Styling for individual movie card */
+.movie {
+  width: 310px; /* Setting width */
+  height: 460px; /* Setting height */
+  margin: 1.5rem; /* Adding margin */
+  position: relative; /* Setting position */
+  border-radius: 12px; /* Applying border radius */
+  overflow: hidden; /* Hiding overflowing content */
+  border: none; /* Removing border */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1); /* Adding transition effect */
+  /* Adding box shadow */
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for movie card content */
+.movie div:nth-of-type(1) {
+  position: absolute; /* Setting position */
+  padding: 16px; /* Adding padding */
+  width: 100%; /* Setting width */
+  opacity: 0; /* Setting opacity */
+  top: 0; /* Positioning from top */
+  color: #f9d3b4; /* Setting text color */
+}
+
+/* Hover effect for movie card */
+.movie:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1); /* Applying box shadow on hover */
+  transform: scale(1.05, 1.05); /* Scaling up on hover */
+}
+
+/* Styling for movie poster */
+.movie div:nth-of-type(2) {
+  width: 100%; /* Setting width */
+  height: 100%; /* Setting height */
+}
+
+/* Styling for movie poster image */
+.movie div:nth-of-type(2) img {
+  height: 100%; /* Setting height */
+  width: 100%; /* Setting width */
+}
+
+/* Styling for movie details */
+.movie div:nth-of-type(3) {
+  z-index: 2; /* Setting z-index */
+  background-color: #343739; /* Setting background color */
+  padding: 16px 24px 24px 24px; /* Adding padding */
+  position: absolute; /* Setting position */
+  bottom: 0; /* Positioning from bottom */
+  right: 0; /* Positioning from right */
+  left: 0; /* Positioning from left */
+}
+
+/* Styling for movie type */
+.movie div:nth-of-type(3) span {
+  font-family: "Raleway", sans-serif; /* Setting font family */
+  text-transform: uppercase;
 }
